@@ -23,7 +23,7 @@ export default function UserDashboard() {
 
   useEffect(() => {
     setLoadingProblems(true);
-    axios.get("http://3.95.228.48:5000/api/problems")
+    axios.get("https://3.95.228.48:5000/api/problems")
       .then((res) => setProblems(res.data))
       .catch((err) => console.error(err))
       .finally(() => setLoadingProblems(false));
@@ -31,7 +31,7 @@ export default function UserDashboard() {
     if (token) {
       setLoadingUser(true);
       // Fetch logged-in user info
-      axios.get("http://3.95.228.48:5000/api/auth/me", {
+      axios.get("https://3.95.228.48:5000/api/auth/me", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => setUser(res.data))
@@ -39,7 +39,7 @@ export default function UserDashboard() {
       .finally(() => setLoadingUser(false));
 
       // Fetch user's solved problems
-      axios.get("http://3.95.228.48:5000/api/auth/submissions", {
+      axios.get("https://3.95.228.48:5000/api/auth/submissions", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => setSolvedProblems(res.data.submissions || []))

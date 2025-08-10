@@ -14,10 +14,10 @@ export default function UserProfile() {
     async function fetchData() {
       try {
         const [userRes, solvedRes] = await Promise.all([
-          axios.get("http://3.95.228.48:5000/api/auth/me", {
+          axios.get("https://3.95.228.48:5000/api/auth/me", {
             headers: { Authorization: `Bearer ${token}` },
           }),
-          axios.get("http://3.95.228.48:5000/api/auth/submissions", {
+          axios.get("https://3.95.228.48:5000/api/auth/submissions", {
             headers: { Authorization: `Bearer ${token}` },
           }),
         ]);

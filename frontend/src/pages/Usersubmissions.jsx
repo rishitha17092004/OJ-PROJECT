@@ -12,7 +12,7 @@ export default function Usersubmissions() {
         // Add token here if your API needs authentication
         // const token = localStorage.getItem("token");
 
-        const res = await axios.get("http://3.95.228.48:5000/api/users/submissions"
+        const res = await axios.get("https://3.95.228.48:5000/api/users/submissions"
           // , { headers: { Authorization: `Bearer ${token}` } }
         );
 

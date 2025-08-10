@@ -15,7 +15,7 @@ export default function AdminUserManager() {
   // useCallback to memoize the function
   const fetchUsers = useCallback(async () => {
     try {
-      const res = await axios.get("http://3.95.228.48:5000/api/users", config);
+      const res = await axios.get("https://3.95.228.48:5000/api/users", config);
       setUsers(res.data);
     } catch (error) {
       console.error("Failed to fetch users:", error);
@@ -34,7 +34,7 @@ setEditUser({ name: user.name, role: user.role, password: "" });
   const handleUpdate = async () => {
     try {
       await axios.put(
-        `http://3.95.228.48:5000/api/users/${selectedUser._id}`,
+        `https://3.95.228.48:5000/api/users/${selectedUser._id}`,
         editUser,
         config
       );
@@ -47,7 +47,7 @@ setEditUser({ name: user.name, role: user.role, password: "" });
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://3.95.228.48:5000/api/users/${id}`, config);
+      await axios.delete(`https://3.95.228.48:5000/api/users/${id}`, config);
       fetchUsers();
     } catch (error) {
       console.error("Delete failed:", error);
