@@ -43,7 +43,7 @@ export default function AdminProblemForm() {
           .map((tag) => tag.trim())
           .filter((tag) => tag !== ''),
       };
-      await axios.post('http://localhost:5000/api/problems/create', payload);
+      await axios.post('http://3.95.228.48:5000/api/problems/create', payload);
       alert('Problem posted successfully!');
       // Optionally reset form
     } catch (err) {

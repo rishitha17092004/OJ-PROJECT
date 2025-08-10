@@ -18,7 +18,7 @@ export default function ProblemView() {
   useEffect(() => {
     async function fetchProblem() {
       try {
-        const res = await axios.get(`http://localhost:5000/api/problems/${id}`);
+        const res = await axios.get(`http://3.95.228.48:5000/api/problems/${id}`);
         setProblem(res.data);
       } catch (err) {
         console.error("Failed to load problem", err);
@@ -35,7 +35,7 @@ export default function ProblemView() {
     // Removed: setResults([]);
 
     try {
-      const res = await axios.post("http://localhost:5000/api/run", {
+      const res = await axios.post("http://3.95.228.48:5000/api/run", {
         code: userCode,
         language,
         problemId: problem._id,
@@ -77,7 +77,7 @@ export default function ProblemView() {
       }
 
       const res = await axios.post(
-        "http://localhost:5000/api/submit",
+        "http://3.95.228.48:5000/api/submit",
         {
           code: userCode,
           language,

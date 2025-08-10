@@ -14,7 +14,7 @@ export default function AdminProblemList() {
   useEffect(() => {
     const fetchProblems = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/problems');
+        const res = await axios.get('http://3.95.228.48:5000/api/problems');
         setProblems(res.data);
       } catch (err) {
         console.error("Error fetching problems:", err);
@@ -26,7 +26,7 @@ export default function AdminProblemList() {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this problem?")) {
       try {
-        await axios.delete(`http://localhost:5000/api/problems/delete/${id}`);
+        await axios.delete(`http://3.95.228.48:5000/api/problems/delete/${id}`);
         setProblems(prev => prev.filter(p => p._id !== id));
       } catch (err) {
         console.error("Delete failed:", err);
@@ -55,10 +55,10 @@ export default function AdminProblemList() {
   const handleEditSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:5000/api/problems/edit/${editProblem._id}`, editProblem);
+      await axios.put(`http://3.95.228.48:5000/api/problems/edit/${editProblem._id}`, editProblem);
       alert("Problem updated successfully!");
       setEditProblem(null);
-      const res = await axios.get('http://localhost:5000/api/problems');
+      const res = await axios.get('http://3.95.228.48:5000/api/problems');
       setProblems(res.data);
     } catch (err) {
       console.error("Update failed:", err);
